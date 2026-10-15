@@ -1,4 +1,5 @@
- import { useState } from "react";
+
+import { useState } from "react";
 import { useLoaderData } from "react-router";
 
 const SearchDonar = () => {
@@ -13,12 +14,12 @@ const SearchDonar = () => {
     const group = e.target.group.value.trim();
     const location = e.target.location.value.trim();
 
-      
-const result = (Array.isArray(users) ? users : []).filter(
-  (user) =>
-    user.group?.toLowerCase() === group?.toLowerCase() &&
-    user.location?.toLowerCase() === location?.toLowerCase()
-);
+    const result = (Array.isArray(users) ? users : []).filter(
+      (user) =>
+        user.group?.toLowerCase() === group.toLowerCase() &&
+        user.location?.toLowerCase() === location.toLowerCase()
+    );
+
     setSearchResult(result);
     setSearched(true);
   };
@@ -37,7 +38,6 @@ const result = (Array.isArray(users) ? users : []).filter(
               </h2>
 
               <form onSubmit={handleSearch}>
-
                 {/* Blood Group */}
                 <label className="label">
                   Blood Group
@@ -79,7 +79,6 @@ const result = (Array.isArray(users) ? users : []).filter(
                 >
                   Search
                 </button>
-
               </form>
 
             </div>
@@ -88,8 +87,8 @@ const result = (Array.isArray(users) ? users : []).filter(
         </div>
       </div>
 
-      {/* Search Result  */}
-      <div className="bg-base-500 min-h-screen p-6">
+      {/* Search Result */}
+      <div className="bg-base-200 min-h-screen p-6">
 
         <h2 className="text-2xl font-bold text-center mb-6">
           Search Result
@@ -109,9 +108,8 @@ const result = (Array.isArray(users) ? users : []).filter(
             {searchResult.map((user) => (
               <div
                 key={user._id}
-                className="card bg-red-500 shadow-xl p-5"
+                className="card bg-base-100 shadow-xl p-5"
               >
-
                 <h3 className="text-xl font-bold mb-3">
                   {user.name}
                 </h3>
@@ -131,7 +129,6 @@ const result = (Array.isArray(users) ? users : []).filter(
                 <p>
                   <strong>Contact:</strong> {user.contact}
                 </p>
-
               </div>
             ))}
 
