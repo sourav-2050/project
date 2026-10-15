@@ -13,12 +13,12 @@ const SearchDonar = () => {
     const group = e.target.group.value.trim();
     const location = e.target.location.value.trim();
 
-    const result = users.filter(
-      (user) =>
-        user.group?.toLowerCase() === group.toLowerCase() &&
-        user.location?.toLowerCase() === location.toLowerCase()
-    );
-
+      
+const result = (Array.isArray(users) ? users : []).filter(
+  (user) =>
+    user.group?.toLowerCase() === group?.toLowerCase() &&
+    user.location?.toLowerCase() === location?.toLowerCase()
+);
     setSearchResult(result);
     setSearched(true);
   };

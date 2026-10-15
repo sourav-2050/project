@@ -14,10 +14,12 @@ const AvailableDonar = () => {
     "O-",
   ];
 
-  const bloodGroupCount = bloodGroups.map((group) => ({
-    group,
-    count: users.filter((user) => user.group === group).length,
-  }));
+   const safeUsers = Array.isArray(users) ? users : [];
+
+const bloodGroupCount = bloodGroups.map((group) => ({
+  group,
+  count: safeUsers.filter((user) => user.group === group).length,
+}));
 
   console.log(users);
 
