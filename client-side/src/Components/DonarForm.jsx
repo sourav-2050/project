@@ -9,7 +9,7 @@ const DonarForm = () => {
     const location = e.target.location.value;
     console.log(name, email, password, contact);
     const user = { name, email, contact, password, group, location };
-    fetch("http://localhost:3000/users", {
+    fetch("/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

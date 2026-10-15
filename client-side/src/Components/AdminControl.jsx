@@ -20,7 +20,7 @@ const AdminControl = () => {
       return;
     }
 
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

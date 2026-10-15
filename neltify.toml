@@ -1,17 +1,24 @@
-[build]
+ [build]
   command = "cd client-side && npm install && npm run build"
   publish = "client-side/dist"
   functions = "netlify/functions"
 
-# API Route Redirects
+# Exact /users route (GET /users, POST /users)
 [[redirects]]
   from = "/users"
   to = "/.netlify/functions/api/users"
   status = 200
 
+# Sub-routes under /users (e.g. /users/123)
 [[redirects]]
   from = "/users/*"
   to = "/.netlify/functions/api/users/:splat"
+  status = 200
+
+# Admin routes (e.g. /admin/login)
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/api/admin"
   status = 200
 
 [[redirects]]
@@ -19,7 +26,7 @@
   to = "/.netlify/functions/api/admin/:splat"
   status = 200
 
-# Frontend Single Page Routing Fallback
+# Frontend React Router Single Page App (SPA) Fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -18,7 +18,7 @@ const handleAdmin=e=>{
       password
     };
 
-    fetch("http://localhost:3000/admin/login", {
+    fetch("/admin/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -53,14 +53,14 @@ const router = createBrowserRouter([
         path: "/available",
         Component: AvailableDonar,
         loader: () =>
-          fetch("http://localhost:3000/users"),
+          fetch("/users"),
       },
 
       {
         path: "/searchDonar",
         Component: SearchDonar,
         loader: () =>
-          fetch("http://localhost:3000/users"),
+          fetch("/users"),
       },
 
       {
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
         ),
 
         loader: () =>
-          fetch("http://localhost:3000/users"),
+          fetch("/users"),
       },
     ],
   },
